@@ -6,22 +6,22 @@
 ╚█████╔╝██████╔╝██████╔╝░░░██║░░░  ██║██████╔╝  ██████╔╝██║░╚██╗██║██████╔╝
 ░╚════╝░╚═════╝░╚═════╝░░░░╚═╝░░░  ╚═╝╚═════╝░  ╚═════╝░╚═╝░░╚═╝╚═╝╚═════╝░
 	Source:
-		http://blood.vip/scripts/blood_lib.lua
+		http://Blood.vip/scripts/Blood_lib.lua
 	Version:
 		0.1.5
 	Date: 
 		April,9,2025
 	Author: 
-	JAYZONE AND BART
+	JAYZONE AND UR MUM
 	Contributors:
-	ALLLLL
+	ALL
 
 --]]
 
 
-local blood = {}
-blood.gs = {}
-blood.theme = { -- light
+local BloodX = {}
+BloodX.gs = {}
+BloodX.theme = { -- light
 	main_container = Color3.fromRGB(249, 249, 255),
 	separator_color = Color3.fromRGB(223, 219, 228),
 
@@ -57,7 +57,7 @@ blood.theme = { -- light
 	scrollbar_color = Color3.fromRGB(198, 189, 202),
 }
 
-blood.dark_theme = { -- dark
+BloodX.dark_theme = { -- dark
 	main_container = Color3.fromRGB(32, 32, 33),
 	separator_color = _G.effectcolor,
 
@@ -94,7 +94,7 @@ blood.dark_theme = { -- dark
 }
 
 
-setmetatable(blood.gs, {
+setmetatable(BloodX.gs, {
 		__index = function(_, service)
 			return game:GetService(service)
 		end,
@@ -108,7 +108,7 @@ setmetatable(blood.gs, {
 
 local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 
-function blood:Create(class, properties)
+function BloodX:Create(class, properties)
 	local object = Instance.new(class)
 
 	for prop, val in next, properties do
@@ -120,7 +120,7 @@ function blood:Create(class, properties)
 	return object
 end
 
-function blood:addShadow(object, transparency)
+function BloodX:addShadow(object, transparency)
 	local shadow = self:Create("ImageLabel", {
 		Name = "Shadow",
 		AnchorPoint = Vector2.new(0.5, 0.5),
@@ -137,22 +137,22 @@ function blood:addShadow(object, transparency)
 	shadow.Parent = object
 end
 
-function blood.new(isdark, gprojectName, thinProject)
-	local bloodObject = {}
-	local self2 = bloodObject
-	local self = blood
+function BloodX.new(isdark, gprojectName, thinProject)
+	local BloodXObject = {}
+	local self2 = BloodXObject
+	local self = BloodX
 
-	if not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui"):FindFirstChild("bloodUI") then
-		warn("bloodX:", "instance already exists in coregui!")
+	if not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui"):FindFirstChild("BloodXUI") then
+		warn("BloodXX:", "instance already exists in coregui!")
 		
 		return
 	end
 
-	local theme = blood.theme
+	local theme = BloodX.theme
 	local projectName = false
 	local thinMenu = false
 	
-	if isdark == true then theme = blood.dark_theme end
+	if isdark == true then theme = BloodX.dark_theme end
 	if gprojectName then projectName = gprojectName end
 	if thinProject then thinMenu = thinProject end
 	
@@ -162,25 +162,25 @@ function blood.new(isdark, gprojectName, thinProject)
     local savedposition = UDim2.new(0.5, 0, 0.5, 0)
     
 
-	local bloodData
-	bloodData = {
+	local BloodXData
+	BloodXData = {
 		UpConnection = nil,
 		ToggleKey = Enum.KeyCode.Home,
 	}
 
 	self2.ChangeToggleKey = function(NewKey)
-		bloodData.ToggleKey = NewKey
+		BloodXData.ToggleKey = NewKey
 		
 		if not projectName then
-			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     #fuckSlick     BloodX"
+			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     #fuckSlick     BloodXX"
 		end
 		
-		if bloodData.UpConnection then
-			bloodData.UpConnection:Disconnect()
+		if BloodXData.UpConnection then
+			BloodXData.UpConnection:Disconnect()
 		end
 
-		bloodData.UpConnection = game:GetService("UserInputService").InputEnded:Connect(function(Input)
-			if Input.KeyCode == bloodData.ToggleKey and not typing then
+		BloodXData.UpConnection = game:GetService("UserInputService").InputEnded:Connect(function(Input)
+			if Input.KeyCode == BloodXData.ToggleKey and not typing then
                 toggled = not toggled
 
                 pcall(function() self2.modal.Modal = toggled end)
@@ -205,8 +205,8 @@ function blood.new(isdark, gprojectName, thinProject)
 		end
 	end
 
-	bloodData.UpConnection = game:GetService("UserInputService").InputEnded:Connect(function(Input)
-		if Input.KeyCode == bloodData.ToggleKey and not typing then
+	BloodXData.UpConnection = game:GetService("UserInputService").InputEnded:Connect(function(Input)
+		if Input.KeyCode == BloodXData.ToggleKey and not typing then
 			toggled = not toggled
 
 			if toggled then
@@ -218,7 +218,7 @@ function blood.new(isdark, gprojectName, thinProject)
 	end)
 
 	self2.userinterface = self:Create("ScreenGui", {
-		Name = "bloodUI",
+		Name = "BloodXUI",
 		ZIndexBehavior = Enum.ZIndexBehavior.Global,
 		ResetOnSpawn = false,
 	})
@@ -286,7 +286,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		ZIndex = 2,
 		Size = UDim2.new(1, -30, 0, 30),
 		Position = UDim2.new(0, 30, 0, 0),
-		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE       #fuckSlick     BloodX",
+		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE       #fuckSlick     BloodXX",
 		Font = Enum.Font.GothamSemibold,
 		TextSize = 13,
 		TextXAlignment = Enum.TextXAlignment.Left,
@@ -300,7 +300,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		self2.tip.Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide this menu"
 	end
     
-    function blood.settitle(text)
+    function BloodX.settitle(text)
         self2.tip.Text = tostring(text)
     end
 
@@ -353,7 +353,7 @@ function blood.new(isdark, gprojectName, thinProject)
 	function self2:Category(name)
 		local category = {}
 		
-		category.button = blood:Create("TextButton", {
+		category.button = BloodX:Create("TextButton", {
 			Name = name,
 			BackgroundColor3 = theme.category_button_background,
 			BackgroundTransparency = 1,
@@ -368,7 +368,7 @@ function blood.new(isdark, gprojectName, thinProject)
 			TextSize = 14
 		})
 
-		category.container = blood:Create("ScrollingFrame", {
+		category.container = BloodX:Create("ScrollingFrame", {
 			Name = name,
 			BackgroundTransparency = 1,
 			ScrollBarThickness = 4,
@@ -383,7 +383,7 @@ function blood.new(isdark, gprojectName, thinProject)
 			ScrollBarImageTransparency = 1 --
 		})
 
-		category.hider = blood:Create("Frame", {
+		category.hider = BloodX:Create("Frame", {
 			Name = "Hider",
 			BackgroundTransparency = 0, --
 			BorderSizePixel = 0,
@@ -392,7 +392,7 @@ function blood.new(isdark, gprojectName, thinProject)
 			ZIndex = 5
 		})
 
-		category.L = blood:Create("Frame", {
+		category.L = BloodX:Create("Frame", {
 			Name = "L",
 			BackgroundColor3 = Color3.new(1, 1, 1),
 			BackgroundTransparency = 1,
@@ -402,7 +402,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		})
 		
 		if not thinProject then
-			category.R = blood:Create("Frame", {
+			category.R = BloodX:Create("Frame", {
 				Name = "R",
 				AnchorPoint = Vector2.new(1, 0),
 				BackgroundColor3 = Color3.new(1, 1, 1),
@@ -423,11 +423,11 @@ function blood.new(isdark, gprojectName, thinProject)
 		end
 		
 		do
-			local uilistlayout = blood:Create("UIListLayout", {
+			local uilistlayout = BloodX:Create("UIListLayout", {
 				SortOrder = Enum.SortOrder.LayoutOrder
 			})
 	
-			local uilistlayout2 = blood:Create("UIListLayout", {
+			local uilistlayout2 = BloodX:Create("UIListLayout", {
 				SortOrder = Enum.SortOrder.LayoutOrder
 			})
 			
@@ -504,7 +504,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		function category:Sector(name)
 			local sector = {}
 
-			sector.frame = blood:Create("Frame", {
+			sector.frame = BloodX:Create("Frame", {
 				Name = name,
 				BackgroundColor3 = Color3.new(1, 1, 1),
 				BackgroundTransparency = 1,
@@ -512,7 +512,7 @@ function blood.new(isdark, gprojectName, thinProject)
 				ZIndex = 2
 			})
 
-			sector.container = blood:Create("Frame", {
+			sector.container = BloodX:Create("Frame", {
 				Name = "Container",
 				BackgroundColor3 = Color3.new(1, 1, 1),
 				BackgroundTransparency = 1,
@@ -521,7 +521,7 @@ function blood.new(isdark, gprojectName, thinProject)
 				ZIndex = 2
 			})
 
-			sector.title = blood:Create("TextLabel", {
+			sector.title = BloodX:Create("TextLabel", {
 				Name = "Title",
 				Text = name,
 				BackgroundColor3 = Color3.new(1, 1, 1),
@@ -534,7 +534,7 @@ function blood.new(isdark, gprojectName, thinProject)
 				TextXAlignment = Enum.TextXAlignment.Left,
 			})
 
-			local uilistlayout = blood:Create("UIListLayout", {
+			local uilistlayout = BloodX:Create("UIListLayout", {
 				SortOrder = Enum.SortOrder.LayoutOrder
 			})
 
@@ -551,7 +551,7 @@ function blood.new(isdark, gprojectName, thinProject)
 				local cheat = {}
 				cheat.value = nil
 
-				cheat.frame = blood:Create("Frame", {
+				cheat.frame = BloodX:Create("Frame", {
 					Name = name,
 					BackgroundColor3 = Color3.new(1, 1, 1),
 					BackgroundTransparency = 1,
@@ -559,7 +559,7 @@ function blood.new(isdark, gprojectName, thinProject)
 					ZIndex = 2,
 				})
 
-				cheat.label = blood:Create("TextLabel", {
+				cheat.label = BloodX:Create("TextLabel", {
 					Name = "Title",
 					BackgroundColor3 = Color3.new(1, 1, 1),
 					BackgroundTransparency = 1,
@@ -572,7 +572,7 @@ function blood.new(isdark, gprojectName, thinProject)
 					TextXAlignment = Enum.TextXAlignment.Left
 				})
 
-				cheat.container	= blood:Create("Frame", {
+				cheat.container	= BloodX:Create("Frame", {
 					Name = "Container",
 					AnchorPoint = Vector2.new(1, 0.5),
 					BackgroundColor3 = Color3.new(1, 1, 1),
@@ -590,7 +590,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							end
 						end
 
-						cheat.checkbox = blood:Create("Frame", {
+						cheat.checkbox = BloodX:Create("Frame", {
 							Name = "Checkbox",
 							AnchorPoint = Vector2.new(1, 0),
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -600,7 +600,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							ZIndex = 2,
 						})
 
-						cheat.outerbox = blood:Create("ImageLabel", {
+						cheat.outerbox = BloodX:Create("ImageLabel", {
 							Name = "Outer",
 							AnchorPoint = Vector2.new(1, 0.5),
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -615,7 +615,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.06,
 						})
 
-						cheat.checkboxbutton = blood:Create("ImageButton", {
+						cheat.checkboxbutton = BloodX:Create("ImageButton", {
 							AnchorPoint = Vector2.new(0.5, 0.5),
 							Name = "CheckboxButton",
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -688,7 +688,7 @@ function blood.new(isdark, gprojectName, thinProject)
                         local hsvimage = "rbxassetid://4613607014"
                         local lumienceimage = "rbxassetid://4613627894"
                         
-                        cheat.hsvbar = blood:Create("ImageButton", {
+                        cheat.hsvbar = BloodX:Create("ImageButton", {
 							AnchorPoint = Vector2.new(0.5, 0.5),
 							Name = "HSVBar",
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -699,7 +699,7 @@ function blood.new(isdark, gprojectName, thinProject)
                             Image = hsvimage
                         })
 
-                        cheat.arrowpreview = blood:Create("ImageLabel", {
+                        cheat.arrowpreview = BloodX:Create("ImageLabel", {
                             Name = "ArrowPreview",
                             BackgroundColor3 = Color3.new(1, 1, 1),
                             BackgroundTransparency = 1,
@@ -819,7 +819,7 @@ function blood.new(isdark, gprojectName, thinProject)
 
 						cheat.dropped = false
 
-						cheat.dropdown = blood:Create("ImageButton", {
+						cheat.dropdown = BloodX:Create("ImageButton", {
 							Name = "Dropdown",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -833,7 +833,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.02
 						})
 
-						cheat.selected = blood:Create("TextLabel", {
+						cheat.selected = BloodX:Create("TextLabel", {
 							Name = "Selected",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -847,7 +847,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							TextXAlignment = Enum.TextXAlignment.Left
 						})
 
-						cheat.list = blood:Create("ScrollingFrame", {
+						cheat.list = BloodX:Create("ScrollingFrame", {
 							Name = "List",
 							BackgroundColor3 = theme.dropdown_background,
 							BackgroundTransparency = 0.5,
@@ -863,13 +863,13 @@ function blood.new(isdark, gprojectName, thinProject)
 							ScrollBarImageColor3 = theme.dropdown_scrollbar_color
 						})
 
-						local uilistlayout = blood:Create("UIListLayout", {
+						local uilistlayout = BloodX:Create("UIListLayout", {
 							SortOrder = Enum.SortOrder.LayoutOrder,
 							Padding = UDim.new(0, 2)
 						})
 						uilistlayout.Parent = cheat.list
 						uilistlayout = nil
-						local uipadding = blood:Create("UIPadding", {
+						local uipadding = BloodX:Create("UIPadding", {
 							PaddingLeft = UDim.new(0, 2)
 						})
 						uipadding.Parent = cheat.list
@@ -887,7 +887,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							end
 							
 							for _, value in next, options do
-								local button = blood:Create("TextButton", {
+								local button = BloodX:Create("TextButton", {
 									BackgroundColor3 = Color3.new(1, 1, 1),
 									BackgroundTransparency = 1,
 									Size = UDim2.new(1, 0, 0, 20),
@@ -1019,7 +1019,7 @@ function blood.new(isdark, gprojectName, thinProject)
 					elseif string.lower(kind) == "textbox" then
 						local placeholdertext = data and data.placeholder
 
-						cheat.background = blood:Create("ImageLabel", {
+						cheat.background = BloodX:Create("ImageLabel", {
 							Name = "Background",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1033,7 +1033,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.02
 						})
 
-						cheat.textbox = blood:Create("TextBox", {
+						cheat.textbox = BloodX:Create("TextBox", {
 							Name = "Textbox",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1096,7 +1096,7 @@ function blood.new(isdark, gprojectName, thinProject)
 						local moveconnection
 						local releaseconnection
 
-						cheat.sliderbar = blood:Create("ImageButton", {
+						cheat.sliderbar = BloodX:Create("ImageButton", {
 							Name = "Sliderbar",
 							AnchorPoint = Vector2.new(1, 0.5),
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -1112,7 +1112,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.02,
 						})
 
-						cheat.numbervalue = blood:Create("TextLabel", {
+						cheat.numbervalue = BloodX:Create("TextLabel", {
 							Name = "Value",
 							AnchorPoint = Vector2.new(0, 0.5),
 							BackgroundColor3 = Color3.new(1, 1, 1),
@@ -1128,7 +1128,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							TextSize = 13,
 						})
 
-						cheat.visiframe = blood:Create("ImageLabel", {
+						cheat.visiframe = BloodX:Create("ImageLabel", {
 							Name = "Frame",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1274,7 +1274,7 @@ function blood.new(isdark, gprojectName, thinProject)
 					elseif string.lower(kind) == "button" then
 						local button_text = data and data.text
 
-						cheat.background = blood:Create("ImageLabel", {
+						cheat.background = BloodX:Create("ImageLabel", {
 							Name = "Background",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1288,7 +1288,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.02
 						})
 
-						cheat.button = blood:Create("TextButton", {
+						cheat.button = BloodX:Create("TextButton", {
 							Name = "Button",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1341,7 +1341,7 @@ function blood.new(isdark, gprojectName, thinProject)
 						local connection
 						cheat.holding = false
 						
-						cheat.background = blood:Create("ImageLabel", {
+						cheat.background = BloodX:Create("ImageLabel", {
 							Name = "Background",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1355,7 +1355,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							SliceScale = 0.02
 						})
 
-						cheat.button = blood:Create("TextButton", {
+						cheat.button = BloodX:Create("TextButton", {
 							Name = "Button",
 							BackgroundColor3 = Color3.new(1, 1, 1),
 							BackgroundTransparency = 1,
@@ -1392,7 +1392,7 @@ function blood.new(isdark, gprojectName, thinProject)
 							cheat.holding = false
 
 							connection = game:GetService("UserInputService").InputBegan:Connect(function(Input)
-								if Input.UserInputType.Name == "Keyboard" and Input.KeyCode ~= bloodData.ToggleKey and Input.KeyCode ~= Enum.KeyCode.Backspace then
+								if Input.UserInputType.Name == "Keyboard" and Input.KeyCode ~= BloodXData.ToggleKey and Input.KeyCode ~= Enum.KeyCode.Backspace then
 									cheat.button.Text = "Bound to " .. tostring(Input.KeyCode.Name)
 									
                                     if connection then
@@ -1429,7 +1429,7 @@ function blood.new(isdark, gprojectName, thinProject)
 
 									connection:Disconnect()
 									connection = nil
-								elseif Input.KeyCode == bloodData.ToggleKey then
+								elseif Input.KeyCode == BloodXData.ToggleKey then
 									cheat.button.Text = "Invalid Key";
 									cheat.value = nil
 								end
@@ -1530,7 +1530,7 @@ function blood.new(isdark, gprojectName, thinProject)
 	self2.topbar.Parent = self2.container
 	self2.tip.Parent = self2.topbar
 
-	return self2, bloodData
+	return self2, BloodXData
 end
 
-return blood
+return BloodX
