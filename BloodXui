@@ -237,7 +237,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		Size = UDim2.new(0, 800, 0, 310),
 		ZIndex = 2,
 		ImageTransparency = 0,
-		Image = "rbxassetid://5950650607"
+		Image = "rbxassetid://6659129098"
     })
     
     self2.modal = self:Create("TextButton", {
@@ -288,7 +288,7 @@ function blood.new(isdark, gprojectName, thinProject)
 		ZIndex = 2,
 		Size = UDim2.new(1, -30, 0, 30),
 		Position = UDim2.new(0, 30, 0, 0),
-		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE     #fuckSlick     BloodX",
+		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE       #fuckSlick     BloodX",
 		Font = Enum.Font.GothamSemibold,
 		TextSize = 13,
 		TextXAlignment = Enum.TextXAlignment.Left,
