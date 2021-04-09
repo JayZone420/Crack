@@ -6,15 +6,15 @@
 ╚█████╔╝██████╔╝██████╔╝░░░██║░░░  ██║██████╔╝  ██████╔╝██║░╚██╗██║██████╔╝
 ░╚════╝░╚═════╝░╚═════╝░░░░╚═╝░░░  ╚═╝╚═════╝░  ╚═════╝░╚═╝░░╚═╝╚═╝╚═════╝░
 	Source:
-		http://Blood.vip/scripts/Blood_lib.lua
+		http://BloodX.vip/scripts/BloodX_lib.lua
 	Version:
 		0.1.5
 	Date: 
 		April,9,2025
 	Author: 
-	JAYZONE AND UR MUM
+	JAYZONE AND BART
 	Contributors:
-	ALL
+	ALLLLL
 
 --]]
 
@@ -129,7 +129,7 @@ function BloodX:addShadow(object, transparency)
 		Size = UDim2.new(1, 6, 1, 6),
 		Image = "rbxassetid://1316045217",
 		ImageTransparency = transparency and true or 0.5,
-		ImageColor3 = Color3.fromRGB(35, 35, 35),
+		ImageColor3 = Color3.fromRGB(255, 255, 255),
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(10, 10, 118, 118)
 	})
