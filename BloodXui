@@ -172,7 +172,7 @@ function BloodX.new(isdark, gprojectName, thinProject)
 		BloodXData.ToggleKey = NewKey
 		
 		if not projectName then
-			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     ##fuckSlickHeAPedo     BloodX"
+			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     #fuckSlickHeAPedo     BloodX"
 		end
 		
 		if BloodXData.UpConnection then
