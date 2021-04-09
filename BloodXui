@@ -143,7 +143,7 @@ function BloodX.new(isdark, gprojectName, thinProject)
 	local self = BloodX
 
 	if not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui"):FindFirstChild("BloodXUI") then
-		warn("BloodXX:", "instance already exists in coregui!")
+		warn("BloodX:", "instance already exists in coregui!")
 		
 		return
 	end
@@ -172,7 +172,7 @@ function BloodX.new(isdark, gprojectName, thinProject)
 		BloodXData.ToggleKey = NewKey
 		
 		if not projectName then
-			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     #fuckSlick     BloodXX"
+			self2.tip.Text = "Press '".. string.sub(tostring(NewKey), 14) .."' to hide       JAYZONE     ##fuckSlickHeAPedo     BloodX"
 		end
 		
 		if BloodXData.UpConnection then
@@ -286,7 +286,7 @@ function BloodX.new(isdark, gprojectName, thinProject)
 		ZIndex = 2,
 		Size = UDim2.new(1, -30, 0, 30),
 		Position = UDim2.new(0, 30, 0, 0),
-		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE       #fuckSlick     BloodXX",
+		Text = "Press '".. string.sub(tostring(self.ToggleKey), 14) .."' to hide       JAYZONE       #fuckSlickHeAPedo     BloodX",
 		Font = Enum.Font.GothamSemibold,
 		TextSize = 13,
 		TextXAlignment = Enum.TextXAlignment.Left,
